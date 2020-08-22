@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: bakercicap 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: bakercicap 
+    spec:
+      containers:
+        - name: bakercicap 
+          image: bakcontainer.azurecr.io/bakercicap
+          ports:
+          - containerPort: 1344
