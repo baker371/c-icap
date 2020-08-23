@@ -6,7 +6,7 @@ RUN apt-get install -y curl gcc make automake automake1.11 unzip && \
     cd /tmp && mkdir c-icap
 COPY ./c-icap/ /tmp/c-icap/c-icap/
 COPY ./c-icap-modules /tmp/c-icap/c-icap-modules  
-COPY 'https://github.com/filetrust/Glasswall-Rebuild-SDK-Evaluation/blob/a7484e404b034f9ec6efe8adc69070d7d98aa812/Linux/Library/libglasswall.classic.so' /usr/lib
+ADD https://github.com/filetrust/Glasswall-Rebuild-SDK-Evaluation/blob/a7484e404b034f9ec6efe8adc69070d7d98aa812/Linux/Library/libglasswall.classic.so /usr/lib
 RUN echo "/usr/lib" > /etc/ld.so.conf.d/glasswall.classic.conf && ldconfig
 
 FROM source as build    
